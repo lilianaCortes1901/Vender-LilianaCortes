@@ -50,6 +50,14 @@ class Vendor {
         else System.out.println("Sorry, don't know that item");
     }
 
+    //Returns the stock of a specific item
+    int getItemStock(String name){
+        if (Stock.containsKey(name)){
+            return Stock.get(name).getStock();
+        }
+        return 0;
+    }
+
 }
 
 class Examples {
