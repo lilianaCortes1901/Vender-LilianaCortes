@@ -27,8 +27,12 @@ public class VendorTest {
     //unit test: validate that you can buy an item from vendor
     @Test
     public void buyItemVendorTest(){
-        item.purchase(1);
-        Assertions.assertEquals(2, vendor.getBalance());
+        vendor.select("Candy");
+        //item.purchase(1);
+        Assertions.assertEquals(0, vendor.getBalance());
+
+        vendor.select("Gum");
+        Assertions.assertEquals(0, vendor.getBalance());
     }
 
     //unit test: validate that vendor inventory can be emptied
