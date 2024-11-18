@@ -56,4 +56,18 @@ public class VendorTest {
         Assertions.assertEquals(0, vendor.getItemStock("Gum"));
     }
 
+    //Validate that items are restocked
+    @Test
+    public void restockItem(){
+        vendor.select("Candy");
+        if (vendor.getItemStock("Candy") == 0){
+            item.restock(10);
+        }
+
+        vendor.select("Gum");
+        if (vendor.getItemStock("Gum") == 0){
+            item.restock(10);
+        }
+    }
+
 }
