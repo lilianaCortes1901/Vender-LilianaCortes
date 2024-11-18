@@ -20,7 +20,8 @@ public class VendorTest {
     //Unit test to validate: add money to vendor
     @Test
     public void addMoneyVendorTest(){
-      //vendor.addMoney(20, vendor.getBalance());
+      vendor.addMoney(1.50);
+      assertEquals(1.50, vendor.getBalance());
     }
 
     //unit test: validate that you can buy an item from vendor
