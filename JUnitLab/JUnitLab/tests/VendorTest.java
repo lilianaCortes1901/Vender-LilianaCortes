@@ -38,7 +38,11 @@ public class VendorTest {
     //unit test: validate that vendor inventory can be emptied
     @Test
     public void emptyVendorInventory(){
-        item.restock(0);
+        vendor.addMoney(10);
+        vendor.select("Candy");
+        vendor.select("Candy");
+        vendor.select("Candy");
+
         Assertions.assertEquals(0, item.stock);
     }
 
