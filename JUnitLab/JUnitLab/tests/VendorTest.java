@@ -70,4 +70,16 @@ public class VendorTest {
         }
     }
 
+    //Validate restock items in inventory
+    @Test
+    public void restockItemTest(){
+        
+    }
+
+    //Change Name of item at a vendor
+    @Test
+    public void renameItem(){
+
+    }
+
 }

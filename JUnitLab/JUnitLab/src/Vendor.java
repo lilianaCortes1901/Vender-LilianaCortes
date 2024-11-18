@@ -58,6 +58,20 @@ class Vendor {
         return 0;
     }
 
+    //Restock items if unavailable so Vendor's inventory can change over time
+    void restockItem(String name, double price, int amount){
+        if (Stock.containsKey(name)){
+            Stock.get(name).restock(amount);
+        } else {
+            Stock.put(name, new Item(price, amount));
+        }
+    }
+
+    //Change the name of an item
+    void rename (String name){
+        this.rename(name);
+    }
+
 }
 
 class Examples {
