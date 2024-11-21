@@ -75,8 +75,16 @@ public class VendorTest {
     //Validate restock items in inventory
     @Test
     public void restockItemTest(){
+        //checks current items can be restocked
         vendor.restockItem("Candy", 1.50, 5);
         assertEquals(6, vendor.getItemStock("Candy"));
+
+        vendor.restockItem("Gum", 0.5, 5);
+        assertEquals(10, vendor.getItemStock("Gum"));
+
+        //Adds new items to inventory if they are not available
+        vendor.restockItem("Chips", 2.0, 5);
+        assertEquals(5, vendor.getItemStock("Chips"));
     }
 
     //Change Name of item at a vendor
