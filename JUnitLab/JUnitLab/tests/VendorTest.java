@@ -68,12 +68,15 @@ public class VendorTest {
         if (vendor.getItemStock("Gum") == 0){
             item.restock(10);
         }
+
+        Assertions.assertEquals(10, vendor.getItemStock("Candy"));
     }
 
     //Validate restock items in inventory
     @Test
     public void restockItemTest(){
-        
+        vendor.restockItem("Candy", 1.50, 5);
+        assertEquals(6, vendor.getItemStock("Candy"));
     }
 
     //Change Name of item at a vendor
