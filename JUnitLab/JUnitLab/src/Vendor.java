@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -153,6 +154,19 @@ class Vendor {
             newPrice = Stock.get(name).price - savings;
         }
         return newPrice;
+    }
+
+    //Mark best-seller items based on getSold
+    ArrayList<String> bestSellers = new ArrayList<>();
+    void bestSellerItem(){
+        System.out.println("Current Best-Sellers: ");
+        for (String itemName : Stock.keySet()){
+            Item item = Stock.get(itemName);
+            if(item.sold >= 5){
+                bestSellers.add(itemName);
+            }
+            System.out.println(bestSellers);
+        }
     }
 
 }

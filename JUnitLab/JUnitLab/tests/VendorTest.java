@@ -155,4 +155,10 @@ public class VendorTest {
         assertEquals(1.125, vendor.getItemDiscount("Candy", 10));
     }
 
+    //Validate Item bestSeller
+    @Test
+    public void bestSellerTest(){
+        vendor.bestSellerItem();
+    }
+
 }
