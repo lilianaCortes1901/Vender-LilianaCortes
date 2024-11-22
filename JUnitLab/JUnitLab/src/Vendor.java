@@ -64,6 +64,7 @@ class Vendor {
             Stock.get(name).restock(amount);
         } else {
             Stock.put(name, new Item(price, amount));
+            System.out.println("Added " +name+ " for " + price + ". Inventory: " + amount);
         }
     }
 
