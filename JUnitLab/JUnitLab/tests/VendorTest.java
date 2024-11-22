@@ -89,8 +89,10 @@ public class VendorTest {
 
     //Change Name of item at a vendor
     @Test
-    public void renameItem(){
-
+    public void renameItemTest(){
+        vendor.renameItem("Candy", "Skittles");
+        //-1 because the original item name "Candy" is removed before renaming
+        assertEquals(-1, vendor.getItemStock("Candy"));
     }
 
 }

@@ -69,8 +69,14 @@ class Vendor {
     }
 
     //Change the name of an item
-    void rename (String name){
-        this.rename(name);
+    void renameItem (String name, String newName){
+        if(Stock.containsKey(name)){
+            Item item = Stock.remove(name);
+            Stock.put(newName, item);
+            System.out.println("Renamed " + name + "to " + newName);
+        } else {
+            System.out.println("Item name not found");
+        }
     }
 
 }
