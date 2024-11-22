@@ -1,9 +1,10 @@
 class Item {
     double price;
     int stock;
+    String desc;
     int sold;
 
-    Item(double price, int numPieces) {
+    Item(double price, int numPieces, String desc) {
         this.price = price;
         this.stock = numPieces;
         this.sold = 0;
@@ -19,6 +20,10 @@ class Item {
 
     int getSold(){
         return this.sold;
+    }
+
+    String getDesc(){
+        return this.desc;
     }
 
     void purchase(int amount) {

@@ -78,14 +78,14 @@ public class VendorTest {
     @Test
     public void restockItemTest(){
         //checks current items can be restocked
-        vendor.restockItem("Candy", 1.50, 5);
+        vendor.restockItem("Candy", 1.50, 5, item.desc);
         assertEquals(6, vendor.getItemStock("Candy"));
 
-        vendor.restockItem("Gum", 0.5, 5);
+        vendor.restockItem("Gum", 0.5, 5, item.desc);
         assertEquals(10, vendor.getItemStock("Gum"));
 
         //Adds new items to inventory if they are not available
-        vendor.restockItem("Chips", 2.0, 5);
+        vendor.restockItem("Chips", 2.0, 5, item.desc);
         assertEquals(5, vendor.getItemStock("Chips"));
     }
 
@@ -134,6 +134,18 @@ public class VendorTest {
         //tests not popular item
         vendor.soldItem("Gum");
         assertEquals(1, vendor.getItemSold("Gum"));
+    }
+
+    //Validates Items have descriptions
+    @Test
+    public void itemDescTest(){
+        //tests non-existing items
+        vendor.itemDesc("Chips");
+        Assertions.assertEquals(null, vendor.getItemDec("Chips"));
+
+        //tests existing items
+        vendor.itemDesc("Candy");
+        Assertions.assertEquals(vendor.getItemDec("Candy"), vendor.getItemDec("Candy"));
     }
 
 }

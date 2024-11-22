@@ -10,8 +10,8 @@ class Vendor {
     private double balance;
 
     Vendor(int numCandy, int numGum) {
-        Stock.put("Candy", new Item(1.25, numCandy));
-        Stock.put("Gum", new Item(.5, numGum));
+        Stock.put("Candy", new Item(1.25, numCandy, "A sweet treat that can't be beat :]"));
+        Stock.put("Gum", new Item(.5, numGum, "New a refresher? Try gum :]"));
         this.balance = 0;
     }
 
@@ -66,12 +66,20 @@ class Vendor {
         return 0;
     }
 
+    //Returns description of an item
+    String getItemDec(String name){
+        if(Stock.containsKey(name)){
+            return Stock.get(name).getDesc();
+        }
+        return null;
+    }
+
     //Restock items if unavailable so Vendor's inventory can change over time
-    void restockItem(String name, double price, int amount){
+    void restockItem(String name, double price, int amount, String dec){
         if (Stock.containsKey(name)){
             Stock.get(name).restock(amount);
         } else {
-            Stock.put(name, new Item(price, amount));
+            Stock.put(name, new Item(price, amount, dec));
             System.out.println("Added " +name+ " for " + price + ". Inventory: " + amount);
         }
     }
@@ -119,6 +127,14 @@ class Vendor {
                 System.out.println("Not popular");
             }
         }
+    }
+
+    //Check Item's description before purchasing
+    void itemDesc(String name){
+        if(Stock.containsKey(name)){
+            Stock.get(name).getDesc();
+        }
+
     }
 
 }
