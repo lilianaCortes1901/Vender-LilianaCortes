@@ -13,8 +13,9 @@ public class VendorManager {
     }
 
     //Adds new Vendor to vendors list
-    void addVendor(){
-
+    void addVendor(Vendor vendor){
+        vendors.add(vendor);
+        System.out.println("New Vendor added.");
     }
 
 }

@@ -7,9 +7,12 @@ public class VendorTest {
     //init Vendor & Item classes
     static Vendor vendor;
     static Item item;
+
+    static VendorManager vendors;
     @BeforeEach
     public void setup(){
         vendor = new Vendor(1,5);
+        vendors = new VendorManager();
     }
 
     @Test
@@ -104,6 +107,12 @@ public class VendorTest {
         //checks if item is in vendor
         vendor.removeItem("Chips");
         assertEquals("No item listed", vendor.removeItem("Chips"));
+    }
+
+    //Validates system can add new Vendor
+    @Test
+    public void addVendorTest(){
+        vendors.addVendor(vendor);
     }
 
 }
