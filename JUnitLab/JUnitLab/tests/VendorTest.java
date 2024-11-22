@@ -95,4 +95,15 @@ public class VendorTest {
         assertEquals(-1, vendor.getItemStock("Candy"));
     }
 
+    //Validates removeItem: Removes items if discontinued
+    @Test
+    public void removeItemTest(){
+        vendor.removeItem("Candy");
+        assertEquals(0, vendor.removeItem("Candy"));
+
+        //checks if item is in vendor
+        vendor.removeItem("Chips");
+        assertEquals("No item listed", vendor.removeItem("Chips"));
+    }
+
 }

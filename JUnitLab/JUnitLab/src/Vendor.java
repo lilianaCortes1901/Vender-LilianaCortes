@@ -79,6 +79,28 @@ class Vendor {
         }
     }
 
+    //Printing list from Vendor
+    void printVendorList(){
+        System.out.println("List of current Vendor Inventory: ");
+        //keySet() is a method in HashMap class that returns a set of items contained in Hashmap
+        for (String itemName : Stock.keySet()){
+            Item item = Stock.get(itemName);
+            System.out.println(itemName +" :" + " Price: " + item.price + " Stock: " + item.stock);
+        }
+    }
+
+    //Removes an item if discontinued
+    short removeItem(String name){
+        if(Stock.containsKey(name)){
+            if(Stock.get(name).getStock() == 0){
+                Stock.remove(name);
+            }
+        } else {
+            System.out.println("No item listed");
+        }
+        return 0;
+    }
+
 }
 
 class Examples {
