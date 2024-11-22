@@ -94,7 +94,7 @@ public class VendorTest {
     public void renameItemTest(){
         vendor.renameItem("Candy", "Skittles");
         //-1 because the original item name "Candy" is removed before renaming
-        assertEquals(-1, vendor.getItemStock("Candy"));
+        assertEquals(0, vendor.getItemStock("Candy"));
     }
 
     //Validates removeItem: Removes items if discontinued
@@ -105,13 +105,35 @@ public class VendorTest {
 
         //checks if item is in vendor
         vendor.removeItem("Chips");
-        assertEquals("No item listed", vendor.removeItem("Chips"));
+        assertEquals(0, vendor.removeItem("Chips"));
     }
 
     //Validates system can add new Vendor
     @Test
     public void addVendorTest(){
         vendors.addVendor(vendor);
+    }
+
+    //Validates soldItem insights
+    @Test
+    public void soldItemTest(){
+        vendor.addMoney(7.0);
+
+        //buy items
+        vendor.select("Candy");
+        vendor.select("Candy");
+        vendor.select("Candy");
+        vendor.select("Candy");
+        vendor.select("Candy");
+        vendor.select("Gum");
+
+        //tests popular item
+        vendor.soldItem("Candy");
+        assertEquals(5, vendor.getItemSold("Candy"));
+
+        //tests not popular item
+        vendor.soldItem("Gum");
+        assertEquals(1, vendor.getItemSold("Gum"));
     }
 
 }

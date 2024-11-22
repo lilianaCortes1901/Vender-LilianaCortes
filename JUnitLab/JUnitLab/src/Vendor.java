@@ -58,6 +58,14 @@ class Vendor {
         return 0;
     }
 
+    //Returns sold value of a specific item
+    int getItemSold(String name){
+        if(Stock.containsKey(name)){
+            return Stock.get(name).getSold();
+        }
+        return 0;
+    }
+
     //Restock items if unavailable so Vendor's inventory can change over time
     void restockItem(String name, double price, int amount){
         if (Stock.containsKey(name)){
@@ -73,7 +81,7 @@ class Vendor {
         if(Stock.containsKey(name)){
             Item item = Stock.remove(name);
             Stock.put(newName, item);
-            System.out.println("Renamed " + name + "to " + newName);
+            System.out.println("Renamed " + name + " to " + newName);
         } else {
             System.out.println("Item name not found");
         }
@@ -99,6 +107,18 @@ class Vendor {
             System.out.println("No item listed");
         }
         return 0;
+    }
+
+    //Track customer purchase for each item and provide insight on result
+    void soldItem(String name){
+        if(Stock.containsKey(name)){
+            Stock.get(name).getSold();
+            if (Stock.get(name).getSold() >= 5){
+                System.out.println("Popular");
+            } else {
+                System.out.println("Not popular");
+            }
+        }
     }
 
 }
