@@ -134,7 +134,25 @@ class Vendor {
         if(Stock.containsKey(name)){
             Stock.get(name).getDesc();
         }
+    }
 
+    //Applies discounts to selected Items
+    void itemDiscount(String name, int discount){
+        if(Stock.containsKey(name)){
+            double savings = Stock.get(name).price/100 * discount;
+            double newPrice = Stock.get(name).price - savings;
+            System.out.println("Discounted Item Price: " + newPrice);
+        }
+    }
+
+    //Gets the discount from Item
+    double getItemDiscount(String name, int discount) {
+        double newPrice = 0;
+        if (Stock.containsKey(name)) {
+            double savings = Stock.get(name).price / 100 * discount;
+            newPrice = Stock.get(name).price - savings;
+        }
+        return newPrice;
     }
 
 }

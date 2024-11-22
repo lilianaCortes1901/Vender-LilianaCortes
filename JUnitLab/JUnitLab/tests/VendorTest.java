@@ -148,4 +148,11 @@ public class VendorTest {
         Assertions.assertEquals(vendor.getItemDec("Candy"), vendor.getItemDec("Candy"));
     }
 
+    //Validates Item discount
+    @Test
+    public void itemDiscTest(){
+        vendor.itemDiscount("Candy", 10);
+        assertEquals(1.125, vendor.getItemDiscount("Candy", 10));
+    }
+
 }
