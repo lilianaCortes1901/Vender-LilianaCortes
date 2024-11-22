@@ -18,4 +18,14 @@ public class VendorManager {
         System.out.println("New Vendor added.");
     }
 
+    void printVendorInventory(){
+        System.out.println("All Vendors Inventories: ");
+        //calls printVendor from Vendor class
+        for (int i = 0; i < vendors.size(); i++){
+            vendors.get(i).printVendorList();
+            System.out.println();
+        }
+
+    }
+
 }

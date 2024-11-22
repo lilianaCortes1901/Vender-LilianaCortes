@@ -85,7 +85,7 @@ class Vendor {
         //keySet() is a method in HashMap class that returns a set of items contained in Hashmap
         for (String itemName : Stock.keySet()){
             Item item = Stock.get(itemName);
-            System.out.println(itemName +" :" + " Price: " + item.price + " Stock: " + item.stock);
+            System.out.println(itemName +" :" + " Price:" + item.price + " Stock:" + item.stock);
         }
     }
 

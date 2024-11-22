@@ -7,7 +7,6 @@ public class VendorTest {
     //init Vendor & Item classes
     static Vendor vendor;
     static Item item;
-
     static VendorManager vendors;
     @BeforeEach
     public void setup(){
